@@ -17,6 +17,10 @@ int main()
 	}
 	cout << "end input" << endl;
 	NMS nms(bx, 0.5);
-	nms.nms();
+	vector<Bbox> res = nms.nms();
+	cout << "num :" << res.size() << endl;
+	for(int i = 0; i < res.size(); ++i){
+		cout << res[i].x << " " << res[i].y << " " << res[i].w << " " << res[i].h << " " << res[i].score << endl;
+	}
 	return 0;
 }

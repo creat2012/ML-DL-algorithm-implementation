@@ -12,7 +12,7 @@ class NMS
 public:
 	NMS(vector<Bbox> bbox, double);
 	~NMS();
-	void nms();
+	vector<Bbox> nms();
 	double IOU(Bbox b1, Bbox b2);
 private:
 	vector<Bbox> bbox;

@@ -30,7 +30,7 @@ double NMS::IOU(Bbox b1, Bbox b2)
 	else return false;
 }
 
-void NMS::nms()
+vector<Bbox> NMS::nms()
 {
 	int pos = 0;
 	// sort by the score
@@ -48,6 +48,7 @@ void NMS::nms()
 		}
 		bbox.erase(bbox.begin());
 	}
+	return res;
 }
 NMS::~NMS()	
 {
