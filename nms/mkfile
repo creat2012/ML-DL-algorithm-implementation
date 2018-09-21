@@ -1,0 +1,8 @@
+main.o: main.cpp
+	g++ -c main.cpp
+
+nms.o: nms.cpp
+	g++ -c nms.cpp
+
+run : nms.o main.o
+	g++ -o run
