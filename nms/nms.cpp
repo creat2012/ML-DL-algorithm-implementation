@@ -21,13 +21,11 @@ double NMS::IOU(Bbox b1, Bbox b2)
 	miny = min(b1.y, b2.y);
 	maxx = max(b1.x + b1.w, b2.x + b2.w);
 	maxy = max(b1.y + b1.h, b2.y + b2.h);
-	double overlap_w = max(0.0, maxx - minx);
+	double overlap_w = max(0.0, maxx - 	minx);
 	double overlap_h = max(0.0, maxy - miny);
 	double overlap = overlap_h * overlap_w; 
 	iou = overlap / (b1.w * b1.h + b2.w * b2.h - overlap);
-	if(iou > this->shreshold)
-		return true;
-	else return false;
+	return iou;
 }
 
 vector<Bbox> NMS::nms()
@@ -35,13 +33,11 @@ vector<Bbox> NMS::nms()
 	int pos = 0;
 	// sort by the score
 	sort(bbox.begin(), bbox.end(), cmp);
-	for(int i = 0; i < bbox.size(); ++ i){
-		cout << bbox[i].score << endl;
-	}
 	while(bbox.size()){
 		res.push_back(bbox[0]);
 		for(int i = 1; i < bbox.size(); ++ i){
-			if(IOU(bbox[0], bbox[i])){
+			cout << IOU(bbox[0], bbox[i]) << endl;
+			if(IOU(bbox[0], bbox[i]) > 0.8){
 				bbox.erase(bbox.begin() + i);
 				-- i;
 			}
