@@ -14,6 +14,7 @@ public:
 	~NMS();
 	vector<Bbox> nms();
 	double IOU(Bbox b1, Bbox b2);
+	void print_box_info(std::vector<Bbox>);
 private:
 	vector<Bbox> bbox;
 	vector<Bbox> res;
