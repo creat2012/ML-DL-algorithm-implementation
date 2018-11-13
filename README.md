@@ -4,3 +4,7 @@
 #### TODO:
 - test using better data
 - image display
+
+#### language
+- c/c++
+- python
