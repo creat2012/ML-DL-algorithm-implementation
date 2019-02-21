@@ -15,6 +15,7 @@ class Kmeans(object):
 		for i in range(self.k):
 			self.cluster.append([])
 		self.center = []
+		self.error = 0
 	
 	def init_center(self):
 		""" choose k samples that in data init as the center"""
@@ -61,6 +62,12 @@ class Kmeans(object):
 		plt.show()
 		print("end plot")
 
+	def compute_error(self):
+		for i in range(self.k):
+			for point in self.cluster[i]:
+				self.error += self.compute_dis(self.center[i], point)
+		print("error : ", self.error)
+
 	def kmeans(self):
 		self.init_center()
 		center_change = True
@@ -99,4 +106,5 @@ class Kmeans(object):
 					sum_x += sample[0]
 					sum_y += sample[1]
 				self.center[i] = (sum_x / len(temp_cluster[i]), sum_y / len(temp_cluster[i]))
+			self.compute_error()
 			self.plot2()
