@@ -30,7 +30,7 @@ optimizer = torch.optim.Adam(foward_net.parameters(), lr=BASE_LEARNING )
 
 def train(epoch):
 	""" train for one epoch"""
-	for i, (images, labels) in enumerate( train_loader):
+	for i, (images, labels) in enumerate(train_loader):
 		images = Variable(images.view(-1, 28 * 28))
 		labels = Variable(labels)
 
